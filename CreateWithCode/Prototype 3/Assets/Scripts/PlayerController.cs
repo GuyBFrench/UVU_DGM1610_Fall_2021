@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip crashSound;
     private AudioSource playerAudio;
 
+    
     public float jumpForce;
     public float gravityModifier;
     public bool isOnGround = true;
