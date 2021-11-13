@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 6.0f;
+    public GameObject arrow;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
@@ -30,5 +33,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(Vector3.right * Time.deltaTime * speed);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(arrow, transform.position + (new Vector3(0, +1, 0)), arrow.transform.rotation);
+        }
     }
+
+
 }
