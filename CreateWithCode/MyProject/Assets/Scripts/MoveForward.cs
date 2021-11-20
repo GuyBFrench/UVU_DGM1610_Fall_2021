@@ -17,7 +17,7 @@ public class MoveForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        transform.Translate(Vector3.down * Time.deltaTime * speed);
         
         // Vector3 awayDirection = (transform.position - player.transform.position).normalized;
         // arrowRb.AddForce(awayDirection * speed);

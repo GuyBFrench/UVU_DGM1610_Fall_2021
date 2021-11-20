@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(arrow, transform.position + (new Vector3(0, +1, 0)), arrow.transform.rotation);
+            Instantiate(arrow, transform.position + (new Vector3(0, +2, 0)), arrow.transform.rotation);
         }
     }
 
