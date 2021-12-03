@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    void SpawnRandomEnemy()
+    public void SpawnRandomEnemy()
     {
         spawnIndex = Random.Range(0, count);
         int randomIndex = Random.Range(0, enemies.Length);
