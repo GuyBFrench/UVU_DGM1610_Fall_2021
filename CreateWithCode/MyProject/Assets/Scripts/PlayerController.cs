@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 6.0f;
+    [SerializeField] float speed = 6.0f;
+    
     public GameObject arrow;
+    private SpawnManager spawnManager;
     
     // Start is called before the first frame update
     void Start()
@@ -40,5 +43,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            spawnManager.GameOver();
+        }
+    }
 
 }
