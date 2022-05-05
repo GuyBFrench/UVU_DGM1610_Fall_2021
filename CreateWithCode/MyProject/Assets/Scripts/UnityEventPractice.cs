@@ -10,10 +10,10 @@ public class UnityEventPractice : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            practiceEvent.Invoke();
-        }
+       // if (other.CompareTag("Enemy"))
+        //{
+        //    practiceEvent.Invoke();
+       // }
     }
 
 }

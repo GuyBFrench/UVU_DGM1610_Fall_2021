@@ -7,11 +7,14 @@ public class MoveForward : MonoBehaviour
     public float speed = 40.0f;
     private Rigidbody arrowRb;
     private GameObject player;
+    private SpawnManager spawnManager;
+
     // Start is called before the first frame update
     void Start()
     {
         arrowRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
@@ -23,16 +26,23 @@ public class MoveForward : MonoBehaviour
         // arrowRb.AddForce(awayDirection * speed);
     }
 
-    private void OnCollisionEnter(Collision other)
+    public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }
+        else if (other.gameObject.CompareTag("Enemy1"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+            spawnManager.KilledScore(1);
+        }
         else if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            spawnManager.KilledScore(2);
         }
     }
 }

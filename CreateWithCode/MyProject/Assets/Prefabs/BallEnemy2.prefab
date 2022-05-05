@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9067245506918060775}
   - component: {fileID: 2817689136314539471}
   - component: {fileID: 7934984015558574693}
+  - component: {fileID: 1336586973131713716}
   m_Layer: 0
   m_Name: BallEnemy2
   m_TagString: Enemy
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1437489812fc0d84bb0df3cd99753606, type: 2}
+  - {fileID: 2100000, guid: 21cd81e1bb6893c458efc84af499d4fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,3 +110,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  jump: 400
+--- !u!54 &1336586973131713716
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2265811157910882191}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

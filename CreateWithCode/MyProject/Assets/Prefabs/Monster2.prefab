@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 7084352611595040908}
   - component: {fileID: 6173383454045429696}
   - component: {fileID: 8005310694456594796}
+  - component: {fileID: 2745893455774497919}
   m_Layer: 0
   m_Name: Monster2
   m_TagString: Enemy
@@ -134,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7572029849473630845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4133786434222546257}
@@ -171,6 +172,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+--- !u!65 &2745893455774497919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572029849473630845}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4199131, y: 1.357255, z: 0.6301499}
+  m_Center: {x: -0.053319477, y: 0.6927831, z: -0.18492505}
 --- !u!1001 &6732220395849916034
 PrefabInstance:
   m_ObjectHideFlags: 0

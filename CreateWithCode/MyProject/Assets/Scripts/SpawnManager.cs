@@ -13,11 +13,11 @@ public class SpawnManager : MonoBehaviour
     private Transform[] spawnPoints;
     private int spawnIndex;
 
-    [SerializeField] private float enemySpawnTime = 3.0f;
-    [SerializeField] private float startDelay = 2.0f;
+    [SerializeField] public float enemySpawnTime = 3.0f;
+    [SerializeField] public float startDelay = 2.0f;
     [SerializeField] int score;
-    [SerializeField] TextMeshProUGUI enemiesKilled;
-    [SerializeField] TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI enemiesKilled;
+    public TextMeshProUGUI gameOverText;
 
     public GameObject titleScreen;
     public Button restartButton;
@@ -35,11 +35,10 @@ public class SpawnManager : MonoBehaviour
 
         }
 
-        StartGame();
 
 
         //Froze Unity?
-        // startButton.onClick.AddListener(StartGame);
+        startButton.onClick.AddListener(StartGame);
 
     }
 
@@ -49,14 +48,15 @@ public class SpawnManager : MonoBehaviour
         score = 0;
         KilledScore(0);
         titleScreen.SetActive(false);
-        InvokeRepeating("SpawnRandomEnemy", startDelay, enemySpawnTime);
+        StartCoroutine(SpawnRandomEnemy());
     }
 
-    public void SpawnRandomEnemy()
+     IEnumerator SpawnRandomEnemy()
     {
 
-        while (gameActive)
+        while (gameActive == true)
         {
+            yield return new WaitForSeconds(enemySpawnTime);
             spawnIndex = Random.Range(0, count);
             int randomIndex = Random.Range(0, enemies.Length);
             Instantiate(enemies[randomIndex], spawnPoints[spawnIndex].position, enemies[randomIndex].gameObject.transform.rotation);
@@ -66,8 +66,12 @@ public class SpawnManager : MonoBehaviour
 
     public void KilledScore(int scoreToAdd)
     {
-        score += scoreToAdd;
-        enemiesKilled.text = "Enemies killed: " + score;
+        if(gameActive)
+        {
+            score += scoreToAdd;
+            enemiesKilled.text = "Score: " + score;
+        }
+        
     }
 
     public void RestartGame()
@@ -80,5 +84,6 @@ public class SpawnManager : MonoBehaviour
         gameOverText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
         gameActive = false;
+        Debug.Log("Please work");
     }
 }
